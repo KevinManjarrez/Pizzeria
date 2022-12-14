@@ -10,7 +10,13 @@ app.get("/", (req,res)=>{
 });
 
 app.get("/getpizzas", (req, res) => {
-
+    Pizza.find({},(err, docs) =>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(docs)
+        }
+    })
 });
 
 const port = process.env.PORT || 8000;
